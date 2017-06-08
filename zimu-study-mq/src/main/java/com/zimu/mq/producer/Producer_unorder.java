@@ -2,14 +2,17 @@ package com.zimu.mq.producer;
 
 import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
+import com.alibaba.rocketmq.client.producer.MessageQueueSelector;
 import com.alibaba.rocketmq.client.producer.SendResult;
 import com.alibaba.rocketmq.common.message.Message;
+import com.alibaba.rocketmq.common.message.MessageQueue;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ClassName:Producer <br/>
- * Function: 生产者测试. <br/>
+ * ClassName:Producer_unorder <br/>
+ * Function: 生产者  无序（同一个订单因为线程问题消费可能无序）. <br/>
  * Reason:  TODO ADD REASON. <br/>
  * Date:     2017-05-26 16:28 <br/>
  *
@@ -17,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @see
  * @since JDK 1.8
  */
-public class Producer {
+public class Producer_unorder {
 
     public static void main(String[] args) throws MQClientException,
             InterruptedException {
@@ -31,7 +34,7 @@ public class Producer {
 //        producer.setNamesrvAddr("127.0.0.1:9876");
 //        producer.setNamesrvAddr("192.168.32.10:9876");
         producer.setNamesrvAddr("192.168.32.10:9876;192.168.32.11:9876");
-        producer.setInstanceName("Producer");
+        producer.setInstanceName("Producer_unorder");
 
         /**
          * Producer对象在使用之前必须要调用start初始化，初始化一次即可<br>
@@ -47,16 +50,18 @@ public class Producer {
          */
         for (int i = 0; i < 10; i++) {
             try {
-
-                Message msg = new Message("TopicTest1", "TagA", "OrderID00" + (i+1), ("Hello MetaQA").getBytes());
+                int orderId = i+1;
+                Message msg = new Message("TopicTest" + (i%3+1), "TagA", "OrderID00" + (i+1) , ("Order Create").getBytes());
                 SendResult sendResult = producer.send(msg);
                 System.out.println(sendResult);
 
-                Message msg2 = new Message("TopicTest2", "TagB", "OrderID00" + (i+1), ("Hello MetaQB").getBytes());
+
+                Message msg2 = new Message("TopicTest" + (i%3+1), "TagB", "OrderID00" + (i+1), ("Order Pay").getBytes());
                 SendResult sendResult2 = producer.send(msg2);
                 System.out.println(sendResult2);
 
-                Message msg3 = new Message("TopicTest3", "TagC", "OrderID00" + (i+1), ("Hello MetaQC").getBytes());
+
+                Message msg3 = new Message("TopicTest" + (i%3+1), "TagC", "OrderID00" + (i+1), ("Order Complete").getBytes());
                 SendResult sendResult3 = producer.send(msg3);
                 System.out.println(sendResult3);
 
