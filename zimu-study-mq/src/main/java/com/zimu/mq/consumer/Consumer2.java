@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @see
  * @since JDK 1.8
  */
-public class Consumer {
+public class Consumer2 {
 
         /**
          * 当前例子是PushConsumer用法，使用方式给用户感觉是消息从RocketMQ服务器推到了应用客户端。<br>
@@ -34,10 +34,10 @@ public class Consumer {
              * 注意：ConsumerGroupName需要由应用来保证唯一
              */
             DefaultMQPushConsumer consumer2 = new DefaultMQPushConsumer("ConsumerGroupName");
-//            consumer.setNamesrvAddr("127.0.0.1:9876");
+//            consumer2.setNamesrvAddr("127.0.0.1:9876");
             consumer2.setNamesrvAddr("192.168.32.10:9876;192.168.32.11:9876");
             consumer2.setInstanceName("Consume2");
-//            consumer.setMessageModel(MessageModel.BROADCASTING);
+//            consumer2.setMessageModel(MessageModel.BROADCASTING);
             /**
              * 订阅指定topic下tags分别等于TagA或TagC或TagD
              */
@@ -82,7 +82,7 @@ public class Consumer {
                         count.incrementAndGet();
                     }
                     
-                    System.out.println("Consume Count:"+count+ "\r");
+                    System.out.println("Consume2 Count:"+count+ "\r");
                     return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
                 }
                 
