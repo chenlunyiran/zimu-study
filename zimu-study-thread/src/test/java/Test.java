@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 /**
  * Project Name:zimu-study-thread
  * File Name:Test.java
@@ -18,6 +20,8 @@
  * @see 	 
  */
 public class Test {
-
+    public static void main(String[] args) {
+       System.out.println(UUID.randomUUID()); 
+    }
 }
 
