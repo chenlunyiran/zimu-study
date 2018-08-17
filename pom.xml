@@ -11,6 +11,8 @@
         <module>zimu-study-mq</module>
     <module>zimiu-study-basic</module>
     <module>zimu-study-dubbo</module>
+    <module>zimu-study-common</module>
+    <module>zimu-study-redis</module>
     </modules>
 
 
