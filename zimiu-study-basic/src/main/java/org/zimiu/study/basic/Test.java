@@ -9,6 +9,8 @@
 
 package org.zimiu.study.basic;
 
+import java.util.Map;
+
 /**
  * ClassName:Test <br/>
  * Function: TODO ADD FUNCTION. <br/>
@@ -32,6 +34,9 @@ public class Test {
         System.out.println(c==d);
         System.out.println(b==c);
         System.out.println(e==f);//Integer e = 128,在此涉及了装箱过程，即为Integer e = Integer.valueOf(128),所以就不等了。
+
+        System.out.println(Math.round(-1.5));
+
     }
     
     /*public static Integer valueOf(int i) {
@@ -39,6 +44,7 @@ public class Test {
             return IntegerCache.cache[i + (-IntegerCache.low)];
         return new Integer(i);
     }*/
+
 
 }
 
