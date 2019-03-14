@@ -9,9 +9,9 @@ import java.util.TreeMap;
 
 /**
  * @Classname TreeMapSort
- * @Description TODO
+ * @Description TreeMap排序
  * @Date 2019/3/14 19:03
- * @Created by jianhua.wang
+ * @author jianhua.wang
  */
 public class TreeMapSort {
 
@@ -25,7 +25,7 @@ public class TreeMapSort {
      */
     public static void TreeMapSortByKey() {
         Map<String, String> map = new TreeMap<String, String>(new Comparator<String>() {
-//            @Override
+            //            @Override
             public int compare(String o1, String o2) {
                 // 降序排列
                 return o2.compareTo(o1);
@@ -53,7 +53,7 @@ public class TreeMapSort {
         List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(map.entrySet());
         // 通过比较器来实现排序
         Collections.sort(list, new Comparator<Map.Entry<String, String>>() {
-//            @Override
+            //            @Override
             public int compare(Map.Entry<String, String> o1, Map.Entry<String, String> o2) {
                 // 升序排序
                 return o1.getValue().compareTo(o2.getValue());

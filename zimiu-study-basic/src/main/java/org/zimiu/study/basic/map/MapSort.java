@@ -9,9 +9,9 @@ import java.util.Map;
 
 /**
  * @Classname MapSort
- * @Description TODO
+ * @Description HashMap排序
  * @Date 2019/3/14 19:09
- * @Created by jianhua.wang
+ * @author jianhua.wang
  */
 public class MapSort {
 
