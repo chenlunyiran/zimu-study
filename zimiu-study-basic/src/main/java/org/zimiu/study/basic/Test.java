@@ -37,6 +37,9 @@ public class Test {
 
         System.out.println(Math.round(-1.5));
 
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MAX_VALUE+1);
+
     }
     
     /*public static Integer valueOf(int i) {
