@@ -14,6 +14,7 @@
         <module>zimu-study-dubbo</module>
         <module>zimu-study-common</module>
         <module>zimu-study-redis</module>
+        <module>zimu-study-blockchain</module>
     </modules>
 
     <dependencies>
