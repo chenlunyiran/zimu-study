@@ -15,6 +15,8 @@
         <module>zimu-study-common</module>
         <module>zimu-study-redis</module>
         <module>zimu-study-blockchain</module>
+        <module>zimiu-study-parent</module>
+        <module>zimu-study-springboot</module>
     </modules>
 
     <dependencies>
@@ -53,6 +55,28 @@
             <version>2.0.4.RELEASE</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <!--指定编译时的jdk版本-->
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

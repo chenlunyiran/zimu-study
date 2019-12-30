@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hcoin-repurchase
+  cloud:
+    config:
+      uri: http://hcoin-newex-springcloud-config:8080
+
+management:
+  security:
+    enabled: false

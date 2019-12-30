@@ -1,6 +1,6 @@
 package org.zimiu.study.basic;
 
-import org.zimiu.study.basic.singleton.Person;
+import org.zimiu.study.basic.design.patterns.singleton.Person;
 
 import java.util.HashSet;
 import java.util.Set;

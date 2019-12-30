@@ -1,0 +1,60 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: zimu-study
+  messages:
+    basename: messages/messages
+  jackson:
+    time-zone: GMT+8
+  redis:
+    host: 123.56.119.237
+    port: 6379
+    password: 123456
+    pool:
+      max-active: 10
+      max-idle: 5
+      max-wait: -1
+      min-idle: 2
+newex:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: 'jdbc:mysql://123.56.119.237:3306/zimu_user?characterEncoding=UTF-8&autoReconnect=true&rewriteBatchedStatements=true&useSSL=false'
+    username: root
+    password: btb
+# spring cloud
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://106.13.58.6:3001/eureka
+  instance:
+    prefer-ip-address: true
+    appname: ${spring.application.name}
+  application:
+    account-service: account-service
+    auth-service: newex-auth
+    ticker-query-service: btb-ticker-query
+uniform:
+  service_url: 'http://${eureka.application.auth-service}'
+  aesKey: '<<<!@#$%^&*()>>>'
+  signKey: '!!!QWEDFRTG$%^&??'
+  
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 4000
+  hystrix:
+    enabled: true
+
+btb:
+  jwt:
+    interceptor: true
+    secret: 'wqaszxcde@!1qazx'
+    cryptoKey: 'wqaszxcde@!1qazx'
+    excludePathPatterns: /inner/**,/error,/swagger-resources/**,/v2/api-docs,/env,/env/**,/beans,/service-registry/*,/info,/mappings,/health,/metrics/*,/metrics
+    enabled: true
+
+

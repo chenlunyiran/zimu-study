@@ -9,10 +9,6 @@
 
 package org.zimiu.study.basic;
 
-import org.zimiu.study.basic.singleton.Person;
-
-import java.util.Map;
-
 /**
  * ClassName:Test <br/>
  * Function: TODO ADD FUNCTION. <br/>
