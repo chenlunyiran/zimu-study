@@ -54,6 +54,7 @@ public class Consumer {
                 
                 AtomicLong count = new AtomicLong(0);
                 
+                @Override
                 public ConsumeConcurrentlyStatus consumeMessage(
                         List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
                     

@@ -23,13 +23,15 @@ public class RedisTest {
 
     @GetMapping("/add")
     public ResponseResult list() {
-        redisService.add("name", "jack");
+        redisService.add("name", "1");
         return ResultUtils.success();
     }
 
     @GetMapping("/get")
     public ResponseResult get() {
-        return ResultUtils.success(redisService.get("name"));
+        String s = redisService.get("name");
+        Integer a = Integer.parseInt(s);
+        return ResultUtils.success(a);
     }
 
 }
