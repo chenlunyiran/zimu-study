@@ -139,7 +139,7 @@
 	
 	<artifactId>spring-beans</artifactId>
 	
-	<version>4.3.9.RELEASE</version>
+	<version>5.2.20.RELEASE</version>
 	
 	</dependency>
 	
